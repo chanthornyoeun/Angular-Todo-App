@@ -1,0 +1,8 @@
+$margin-top-bottom: 0.5rem;
+.btn-add {
+    margin: {
+        top: $margin-top-bottom;
+        bottom: $margin-top-bottom;
+    }
+    float: right;
+}

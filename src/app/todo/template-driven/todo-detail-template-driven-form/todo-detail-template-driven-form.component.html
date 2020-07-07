@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row" style="margin-top: 1rem;">
+    <div class="col-lg-10 offset-lg-1">
+      <form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            [(ngModel)]="todo.title"
+            placeholder="Title"
+          />
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select type="text" class="form-control" id="status" name="status" [(ngModel)]="todo.status">
+                <option *ngFor="let status of statusList" [value]="status">{{
+                  status
+                }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="priority">Priority</label>
+              <select type="text" class="form-control" id="priority" name="priority" [(ngModel)]="todo.priority">
+                <option
+                  *ngFor="let priority of priorityList"
+                  [value]="priority"
+                  >{{ priority }}</option
+                >
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row" ngModelGroup="dueDate">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="startDate">Start Date</label>
+              <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="todo.dueDate.startDate"/>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="endDate">End Date</label>
+              <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="todo.dueDate.endDate"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            class="form-control"
+            rows="10"
+            placeholder="Description"
+            name="description"
+            [(ngModel)]="todo.description"
+          ></textarea>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 offset-lg-10" style="text-align: right;">
+            <button
+              type="button"
+              class="btn btn-default"
+              style="margin-right: 1rem;"
+              (click)="navigateBack()"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

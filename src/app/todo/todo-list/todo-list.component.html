@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="col-lg-10 offset-lg-1">
+    <div class="row">
+      <div class="col-lg-2 offset-lg-10">
+        <button
+          type="button"
+          class="btn btn-primary btn-add"
+          (click)="navigateToAdd()"
+        >
+          Add New
+        </button>
+      </div>
+    </div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Status</th>
+          <th scope="col">Due Date</th>
+          <th scope="col" style="text-align: center;">Action</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="todos.length > 0; else noRecord">
+        <tr
+          *ngFor="let todo of todos; let i = index"
+          [style.color]="todo.priority === 'High' ? 'red' : 'none'"
+        >
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ todo.id }}</td>
+          <td>{{ todo.title }}</td>
+          <td>{{ todo.priority }}</td>
+          <td>{{ todo.status }}</td>
+          <td>
+            {{ todo.dueDate.startDate | date }} -
+            {{ todo.dueDate.endDate | date }}
+          </td>
+          <td style="text-align: center;">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              style="margin-right: 0.5rem;"
+              (click)="navigateToEdit(todo.id)"
+            >
+              <i class="fa fa-edit"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="deleteTodoById(todo.id)"
+            >
+              <i class="fa fa-remove"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <ng-template #noRecord>
+        <tfoot>
+          <tr>
+            <td colspan="7" style="text-align: center; font-weight: 500;">
+              No Record
+            </td>
+          </tr>
+        </tfoot>
+      </ng-template>
+    </table>
+  </div>
+</div>
+<router-outlet></router-outlet>
