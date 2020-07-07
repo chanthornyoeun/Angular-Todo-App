@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
-import { WelcomeComponent } from './welcome/welcome.component';
 import { TodoDetailTemplateDrivenFormComponent } from './todo/template-driven/todo-detail-template-driven-form/todo-detail-template-driven-form.component';
 import { TodoDetailReactiveFormComponent } from './todo/reactive-form/todo-detail-reactive-form/todo-detail-reactive-form.component';
 
