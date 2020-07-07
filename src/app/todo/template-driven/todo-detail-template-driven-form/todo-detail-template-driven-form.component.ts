@@ -66,8 +66,6 @@ export class TodoDetailTemplateDrivenFormComponent implements OnInit {
       this.onSave(todo);
     }
 
-    console.log(todo);
-
     this.navigateBack();
   }
 
